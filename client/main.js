@@ -85,6 +85,11 @@ function submitHandler(e) {
             name: nameInput.value,
             post: postInput.value
         })
+        .then(res => {
+            createForumPostHTML(res.data)
+            nameInput.value = ''
+            postInput.value = ''
+        })
     } else {
         alert('You need to give both a name and something to post')
     }
