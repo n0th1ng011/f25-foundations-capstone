@@ -66,7 +66,7 @@ module.exports = {
             return +id === forumPosts.id
         })
 
-        forumPosts[index].comments.push({id: forumPosts[index].reviews.length, content: content})
+        forumPosts[index].comments.push({id: forumPosts[index].comments.length, content: content})
 
         res.status(200).send(forumPosts)
     },

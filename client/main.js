@@ -4,16 +4,16 @@ const postInput = document.querySelector('#post-input')
 let commentText = ''
 
 function deleteHandler(id) {
-    axios.delete(`http://localhost:4000/api/forumPosts/${id}`)
+    axios.delete(`http://localhost:4000/api/forumPost/${id}`)
         .then(res => {
-            createForumPostsHTML(res.data)
+            createForumPostHTML(res.data)
         })
 }
 
 function commentFormHandler(id) {
-    axios.put(`http://localhost:4000/api/forumPosts/${id}`, {content: commentText})
+    axios.put(`http://localhost:4000/api/forumPost/${id}`, {content: commentText})
         .then(res => {
-            createForumPostsHTML(res.data)
+            createForumPostHTML(res.data)
         })
 }
 
@@ -71,7 +71,7 @@ function createForumPostHTML(arr) {
 }
 
 function getAllPosts() {
-    axios.get('hhtp://localhost:400/api/forumPosts')
+    axios.get ('http://localhost:4000/api/forumPost')
         .then(res => {
             createForumPostHTML(res.data)
         })
@@ -81,7 +81,7 @@ function submitHandler(e) {
     e.preventDefault()
 
     if (nameInput.value && postInput.value) {
-        axios.post('http://localhost:4000/api/forumPosts', {
+        axios.post('http://localhost:4000/api/forumPost', {
             name: nameInput.value,
             post: postInput.value
         })
